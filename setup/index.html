@@ -1,0 +1,1602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--Created by AKARI agf.earth - MIT License - Copyright © - Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.-->
+
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+
+    <title>Support Theme Configurator Tool</title>
+
+    <link rel="stylesheet" type="text/css" href="pell.css">
+
+    <link href="color-picker.css" rel="stylesheet">
+
+
+    <style type="text/css">
+
+	.color-picker-box {
+      display:block;
+      margin-top:1px;
+      border-color:inherit;
+      float:left;
+      width:10%;
+      height:1.25em;
+      cursor:pointer;
+      z-index:999;
+    }
+
+    .color-picker-box:first-child {clear:both}
+            
+     a.pell-content{
+      color:#5555FF !important;
+      text-decoration:underline;
+      }
+      
+     h2 a{
+     color:#555;
+     text-decoration:none;
+     }
+     .minitext{
+     background-color:#eee;
+     padding:3px;
+     border-radius:4px;
+     position:relative;
+     top:5px;
+     }
+    
+    notice{
+    position:fixed;
+    margin:auto;
+    text-align:center;
+    width:90%;
+    top:50px;
+    background-color:#dfd;
+    padding:20px;
+    border-radius:4px;
+    margin:20px;
+    -moz-animation: cssAnimation 2s ease-in 1s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 2s ease-in 1s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 2s ease-in 1s forwards;
+    /* Opera */
+    animation: cssAnimation 2s ease-in 1s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color:#111;
+    border:2px #494 solid;
+}
+
+@keyframes cssAnimation {
+    to {
+
+        opacity:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+
+        opacity:0;        
+        visibility:hidden;
+    }
+}
+
+	b{color:#222;}
+		
+      body {
+        margin: 0;
+        padding: 0;
+        background-color:#eef;
+        font-family:verdana;
+        color:#777;
+        font-size:0.8em;
+      }
+	
+      .content {
+        box-sizing: border-box;
+        margin: 0 auto;
+		max-width:800px;
+        padding: 20px;
+        background-image: url('editorbg.png');
+		box-shadow:0px 1px 50px #777;
+      }
+	
+		header{
+		background: linear-gradient(#f9fdff, #cde1ee, #cde1ee, #abc1cf);
+		width:100%;
+		padding:20px;
+		position:relative;
+		left:-20px;
+		top:-25px;
+		}
+
+		footer{
+		background: linear-gradient(#f9fdff, #cde1ee, #cde1ee, #8da7b8);
+		width:100%;
+		padding:20px;
+		position:relative;
+		left:-20px;
+		bottom: -20px;		
+		}
+
+		
+    #html-output {
+        white-space: pre-wrap;
+      }
+      #html-output1 {
+        white-space: pre-wrap;
+      }
+      #html-outputwhy {
+        white-space: pre-wrap;
+      }      
+      a.savebutton{
+      margin-bottom:10px;text-decoration:none;margin:10px;border-radius:6px;
+	  background: linear-gradient(#f6fbff, #b1c6d4, #c6d8e5);
+      border:0px;padding:20px;color:#050;font-weight:bold;
+      box-shadow:3px 3px 5px #778;
+      }
+      a.savebutton:hover{
+      margin-bottom:10px;text-decoration:none;margin:10px;border-radius:6px;
+      	  background: linear-gradient(#268b16, #37b41a, #268b16);
+      border:0px;padding:20px;color:#fff;font-weight:bold;
+      }
+      a.savebutton:active{
+      margin-bottom:10px;text-decoration:none;argin:10px;border-radius:6px;background-color:#fff;border:0px;padding:20px;color:#2f6e29;font-weight:bold;
+      }
+      button.savebutton{
+      min-width:120px;margin:10px;border-radius:6px;
+	  background: linear-gradient(#f6fbff, #b1c6d4, #c6d8e5);
+      border:0px;padding:20px;color:#050;font-weight:bold;
+      box-shadow:0px 1px 5px #778;      
+      }
+      button.savebutton:hover{
+      margin:10px;border-radius:6px;
+      	  background: linear-gradient(#268b16, #37b41a, #268b16);
+      border:0px;padding:20px;color:#fff;font-weight:bold;
+      }      
+      button.savebutton:active{
+      margin:10px;border-radius:6px;background-color:#fff;border:0px;padding:20px;color:#2f6e29;font-weight:bold;
+      }            
+		.pell{
+		background-color:#fff;
+		}
+		.pell-content{
+		color:#333;
+		resize: vertical;
+		min-height:600px;
+		-moz-osx-font-smoothing: grayscale;
+		-moz-font-feature-settings: "liga" on;
+		--x-height-multiplier: 0.375;
+		--baseline-multiplier: 0.17;
+		letter-spacing: .01rem;
+		font-weight: 100;
+		font-style: normal;
+		font-size: 1.6em;
+		line-height: 1.58;
+		letter-spacing: -.003em;
+		font-family: Georgia,Cambria,"Times New Roman",Times,serif !important;
+		}
+		blockquote {
+		position: relative;
+		/* background: #ddd; */
+		width:75%;
+		}
+		pre{
+		background-color:#eee;
+		padding:10px;
+		border-radius:12px;
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+		}
+		blockquote:before {
+		position: absolute;
+		content: open-quote;
+		font-size: 2.5em;
+		margin-left: -0.6em;
+		margin-top: -0.4em;
+		opacity:0.6;
+		}
+		blockquote:after {
+		position: absolute;
+		content: close-quote;
+		font-size: 2.5em;
+		bottom: 0;
+		right: 0;
+		margin-right: -0.6em;
+		margin-bottom: -0.8em;
+		opacity:0.6;  
+		}
+		blockquote p {
+		display: inline;
+		}
+		h1.pell-content{
+		color:#333;
+		font-size:1.2em;
+		}
+		h2.pell-content{
+		color:#333;
+		}      
+		
+		hr{
+      width:100%;
+      border:1px #CCD solid;
+		margin-top:25px;
+		margin-bottom:25px;
+      }
+      h1{
+      color:#333;
+      }
+      textarea{
+      width:75%;
+      border:1px solid #ccc;
+      font-size:2em;
+      font-family:verdana;
+      font-weight:bold;
+      }
+      textarea.smaller{
+      width:75%;
+      border:1px solid #ccc;
+      font-size:1.3em;
+      font-family:verdana;
+      font-weight:bold;
+      }
+
+    </style>
+
+  </head>
+
+  
+
+
+
+
+
+  <body>
+
+
+
+
+    <div class="content">
+		
+		<header>
+			<a target="nw" href="https://github.com/AKARI-B3/support"><img style="position:relative;top:-20px;float:right;width:140px;padding:20px;" src="supportlogo.jpg"></a>
+			<h2 style="font-size:2em;margin-top:35px;"><a target="nw" href="https://github.com/AKARI-B3/support">Support</a> - Bitcoin Cash Publishing Theme Editor</h2>
+			<i style="font-size:1em;">Use this configurator to customize your theme and configure your page</i>.
+		</header>
+
+
+			<div style="width:100%;float:left;">
+			
+				<i style="font-size:1em;"><b>Instructions:</b> Please read before starting: <b style="background-color:#ffff00;color:#000;">&#9888;</b><b style="color:#933;">Refreshing this page will lose your changes</b>.
+				<br>
+				1. Make a folder on your device to save these configuration files in.<br>
+				2. Type in your info and hit the save button next to each section. Save into that folder.<br>
+				3. After the final step, upload and replace existing text configuration files to your webhost or github repo with the new edited one.<br>
+				<a target="nw" href="https://github.com/AKARI-B3/support">(support.cash)</a></i><br><br> 
+
+<hr>
+
+			<br><br>
+			
+				  <b>Username / name / pseudonym for Support</b><br><br>
+				  <textarea style="min-width:290px;" id="projecttitle">username</textarea>				  
+					<br>&nbsp; <span class="minitext">Save & replace 'front_supportname.txt' - this will be used on http://support.cash listing.</span> &nbsp;&nbsp;
+
+			</div>
+
+
+			<div style="width:20%;float:right;">
+					<div style="float:right;margin:auto;text-align;right;">
+									
+					<input style="display:none;" value="front_supportname.txt" id="inputFileNameToSaveAstitle"></input>
+					
+					<button class="savebutton" onclick="saveTextAsFiletitle()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+			
+		<hr>
+
+			<div style="width:100%;float:left;">
+				  <b>Describe your publishings, what are you creating?</b><br><br>
+				  <textarea style="min-width:290px;" class="smaller" id="projectmsg">USERNAME is creating: w, x and y for z</textarea>
+				  <br>&nbsp;<span class="minitext">'front_pagetitle.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="front_pagetitle.txt" id="inputFileNameToSaveAsmsg"></input>
+					<button class="savebutton" onclick="saveTextAsFilemsg()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+			
+<hr>
+
+
+
+
+<b>Profile Photo:</b><br><br>
+
+
+<script type='text/javascript'>
+
+    function loadImage() {
+        var input, file, fr, img;
+
+        if (typeof window.FileReader !== 'function') {
+            write("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('imgfile');
+        if (!input) {
+            write("Um, couldn't find the imgfile element.");
+        }
+        else if (!input.files) {
+            write("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            write("Please select a file before pushing 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = createImage;
+            fr.readAsDataURL(file);
+        }
+
+        function createImage() {
+            img = new Image();
+            img.onload = imageLoaded;
+            img.src = fr.result;
+        }
+        
+
+
+        function imageLoaded() {
+            var canvas = document.getElementById('myCanvas');
+			var context = canvas.getContext("2d");
+            canvas.width = 358;
+            canvas.height = 358;
+			var x = canvas.width / 2;
+			var y = canvas.height / 2;
+			var radius = 176;
+			var offset = 0;
+			
+			context.save();
+			context.beginPath();
+			context.arc(x - offset, y - offset, radius, 0, 2 * Math.PI, false);
+			context.clip();
+
+			context.beginPath();
+			context.arc(x - offset, y - offset, radius, 0, 2 * Math.PI, false);
+			context.fillStyle = 'lightgray';
+			context.fill();
+			
+	
+			var offsetx = 179;
+			var offsety = 173;        
+			var sourceX = canvas.width / 2 - offsetx;
+			var sourceY = canvas.height / 2 - offsety;
+			var sourceWidth = 358;
+			var sourceHeight = 358;
+			var destWidth = 358;
+			var destHeight = 358;
+			var destX = canvas.width / 2 - destWidth / 2;
+			var destY = canvas.height / 2 - destHeight / 2;
+
+
+             context.drawImage(img, sourceX, sourceY, 358, 358, destX, destY, 358, 358);
+//            alert(canvas.toDataURL("image/png"));
+
+
+            			
+        }
+
+        function write(msg) {
+            var p = document.createElement('notice');
+            p.innerHTML = msg;
+            document.body.appendChild(p);
+        }
+        
+        
+
+    }
+
+</script>
+
+
+
+
+<form action='#' onsubmit="return false;">
+    <input type='file' id='imgfile' />
+    <input type='button' id='btnLoad' value='Load' onclick='loadImage();' /> Image <b style="color:#933;">must be</b> 365px square
+</form>
+
+    <canvas id="myCanvas" width="358" height="358"></canvas>
+
+	<img style="display:block;position:relative;top:-344px;z-index:-4" src="profile.png">
+
+<a style="left:90px;position:relative;top:-300px;clear:both;" class="savebutton" id="dl" download="profile.png" href="#">Save profile.png</a>
+<div style="position:relative;margin-bottom:-300px;clear:both;"></div>
+
+    <br>
+    <hr>
+
+    <br>
+<b>Banner Image:</b><br><br>
+
+
+<script type='text/javascript'>
+
+    function loadImage2() {
+        var input, file, fr, img;
+
+        if (typeof window.FileReader !== 'function') {
+            write("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('imgfile2');
+        if (!input) {
+            write("Um, couldn't find the imgfile element.");
+        }
+        else if (!input.files) {
+            write("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            write("Please select a file before pressing 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = createImage;
+            fr.readAsDataURL(file);
+        }
+
+        function createImage() {
+            img = new Image();
+            img.onload = imageLoaded;
+            img.src = fr.result;
+        }
+        
+
+
+        function imageLoaded() {
+            var canvas = document.getElementById('myCanvas2');
+			var context = canvas.getContext("2d");
+            canvas.width = 640;
+            canvas.height = 515;
+
+
+
+             context.drawImage(img, 0, 0, 640, 515);
+//            alert(canvas.toDataURL("image/png"));
+
+
+            			
+        }
+
+        function write(msg) {
+            var p = document.createElement('notice');
+            p.innerHTML = msg;
+            document.body.appendChild(p);
+        }
+        
+        
+
+    }
+
+</script>
+
+
+
+
+<form action='#' onsubmit="return false;">
+    <input type='file' id='imgfile2' />
+    <input type='button' id='btnLoad' value='Load' onclick='loadImage2();' /> (1024px x 391px)
+</form>
+
+    <canvas id="myCanvas2" width="1024" height="391"></canvas>
+    
+	<img style="transform: scale(0.5, 0.5);-ms-transform: scale(0.5, 0.5);-webkit-transform: scale(0.5, 0.5);width:1024px;height:391px;display:block;position:relative;left:-253px;top:-470px;z-index:-4" src="banner.jpg">
+
+<a style="left:90px;position:relative;top:-480px;clear:both;" class="savebutton" id="dl2" download="banner.jpg" href="#">Save banner.jpg</a>
+
+    
+    <div style="position:relative;margin-bottom:-450px;clear:both;"></div>
+
+
+
+    <hr>
+
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+
+/* REGISTER DOWNLOAD HANDLER */
+/* Only convert the canvas to Data URL when the user clicks. 
+   This saves RAM and CPU ressources in case this feature is not required. */
+function dlCanvas() {
+  var dt = canvas.toDataURL('image/png');
+  /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+  dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+
+  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+  dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+
+  this.href = dt;
+  this.download = "profile.png";
+};
+document.getElementById("dl").addEventListener('click', dlCanvas, false);
+		
+</script>
+
+
+    
+<script>
+var canvasa = document.getElementById("myCanvas2");
+var context = canvasa.getContext("2d");
+
+/* REGISTER DOWNLOAD HANDLER */
+/* Only convert the canvas to Data URL when the user clicks. 
+   This saves RAM and CPU ressources in case this feature is not required. */
+function dlCanvas2() {
+  var dta = canvasa.toDataURL('image/jpeg');
+  /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+  dta = dta.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+
+  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+  dta = dta.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+
+  this.href = dta;
+  this.download = "banner.jpg";
+};
+document.getElementById("dl2").addEventListener('click', dlCanvas2, false);
+		
+</script>
+
+
+
+
+
+    </script>
+
+
+
+			<div style="width:60%;float:left;">
+				  <b>Publisher Overview</b><br><br>
+				  <div id="projectinfo" class="pell"></div>
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<span class="minitext">Save & replace 'front_projectinfo.txt'</span> &nbsp;&nbsp;
+					<input style="display:none;" value="front_projectinfo.txt" id="inputFileNameToSaveAs"></input>
+					<button class="savebutton" onclick="saveTextAsFile()">&#10003; Save As...</button>
+					</div>
+				  
+			</div>
+
+
+			<div style="width:35%;float:right;">
+					<br><br><br> 
+					<h2 style="border-bottom:1px solid #ccc;">Code Preview:</h2>  
+					<div style="margin-top:20px;">
+					<pre style="font-size:1em;" id="html-output"></pre>
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+<hr>
+
+
+			<div style="width:60%;float:left;">
+				  <b>About the Creator</b><br><br>
+				  <div id="creatorinfo" class="pell"></div>
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<span class="minitext">'front_creatorinfo.txt'</span> &nbsp;&nbsp;
+					<input style="display:none;" value="front_creatorinfo.txt" id="inputFileNameToSaveAs1"></input>
+					<button class="savebutton" onclick="saveTextAsFile1()">&#10003; Save As...</button>
+					</div>
+				  
+			</div>
+
+
+			<div style="width:35%;float:right;">
+					<br><br><br> 
+					<h2 style="border-bottom:1px solid #ccc;">Code Preview:</h2>  
+					<div style="margin-top:20px;">
+					<pre style="font-size:1em;" id="html-output1"></pre>
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+
+
+<hr>
+
+
+<h2> Colors <h2>
+
+<div style="float:left;width:45%;">
+<b>Background Color:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="background"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="backgroundselector" type="color" value="#deecfb">#deecfb</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_bgcolor.txt" id="inputFileNameToSaveAsbackground"></input>
+<button class="savebutton" onclick="saveTextAsFilebackground()">&#10003; Save</button>
+</div>
+</div>
+
+<div style="float:right;width:45%;">
+<b>Footer Color:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="banner"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="bannerselector" type="color" value="#252c48">#252c48</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_bannerbg.txt" id="inputFileNameToSaveAsbanner"></input>
+<button class="savebutton" onclick="saveTextAsFilebanner()">&#10003; Save</button>
+</div>
+</div>
+
+
+
+
+
+
+
+<div style="clear:both;"></div>
+
+
+<hr>
+
+
+
+<div style="float:left;width:45%;">
+<b>Main Font Color:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="mainfontcolor"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="mainfontselector" type="color" value="#242424">#242424</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_fontcolor.txt" id="inputFileNameToSaveAsmainfont"></input>
+<button class="savebutton" onclick="saveTextAsFilemainfont()">&#10003; Save</button>
+</div>
+</div>
+
+<div style="float:right;width:45%;">
+<b>2nd Font:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="secondfontcolor"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="secondfontselector" type="color" value="#3c5f7e">#3c5f7e</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_fontcolorb.txt" id="inputFileNameToSaveAssecondfont"></input>
+<button class="savebutton" onclick="saveTextAsFilesecondfont()">&#10003; Save</button>
+</div>
+</div>
+
+
+
+
+<div style="clear:both;"></div>
+
+
+<hr>
+
+<div style="float:left;width:45%;">
+<b>Button Font Color:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="buttonfontcolor"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="buttonfontselector" type="color" value="#ffffff">#ffffff</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_buttonfont.txt" id="inputFileNameToSaveAsbuttonfont"></input>
+<button class="savebutton" onclick="saveTextAsFilebuttonfont()">&#10003; Save</button>
+</div>
+</div>
+
+<div style="float:right;width:45%;">
+<b>Button Background:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="buttonbgcolor"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="buttonbgselector" type="color" value="#184c8f">#184c8f</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_buttoncolor.txt" id="inputFileNameToSaveAsbuttonbg"></input>
+<button class="savebutton" onclick="saveTextAsFilebuttonbg()">&#10003; Save</button>
+</div>
+</div>
+
+
+
+
+<div style="clear:both;"></div>
+
+<hr>
+
+<div style="clear:both;"></div>
+
+
+
+<div style="float:left;width:45%;">
+<b>New Post Button BG:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="newpost"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="newpostselector" type="color" value="#acc8d4">#acc8d4</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_postbuttoncolor.txt" id="inputFileNameToSaveAsnewpost"></input>
+<button class="savebutton" onclick="saveTextAsFilenewpost()">&#10003; Save</button>
+</div>
+</div>
+
+<div style="float:right;width:45%;">
+<b>Top Menu Background:</b><br><br>
+<div style="margin:5px;border:1px #ccc solid;border-radius:5px;background-color:#353;display:inline;float:right;width:120px;height:40px;" id="topmenu"></div>
+<div style="width:100%;">
+<textarea style="width:140px;height:50px;" id="topmenuselector" type="color" value="#ffffff">#ffffff</textarea>
+</div>
+<div style="float:right;">
+<input style="display:none;" value="front_topmenucolor.txt" id="inputFileNameToSaveAstopmenu"></input>
+<button class="savebutton" onclick="saveTextAsFiletopmenu()">&#10003; Save</button>
+</div>
+</div>
+
+
+
+
+<div style="clear:both;"></div>
+
+<hr>
+			
+			<h2>Connect your Social Accounts</h2>
+			
+				<div style="width:100%;float:left;">
+				  <b>Yours URL: type your full yours profile url</b><br><br>
+				  <textarea style="min-width:290px;" class="smaller" id="yours">http://yours.org/@username</textarea>				  
+			 <br>&nbsp;<span class="minitext">'front_yours_url.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="front_yours_url.txt" id="inputFileNameToSaveAsyours"></input>
+					<button class="savebutton" onclick="saveTextAsFileyours()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+			
+<hr>
+
+			
+				<div style="width:100%;float:left;">
+				  <b>Memo URL: type your full memo profile url</b><br><br>
+				  <textarea style="min-width:290px;" class="smaller" id="memo">http://memo.cash/123address567</textarea>				  
+			 <br>&nbsp;<span class="minitext">'front_yours_url.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="front_memo_url.txt" id="inputFileNameToSaveAsmemo"></input>
+					<button class="savebutton" onclick="saveTextAsFilememo()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+	
+	
+<div style="clear:both;"></div>
+
+
+
+<hr>
+
+			<div style="width:100%;float:left;">
+			Setup your overall payment page:<br>
+			<i>1. Need a wallet? <a target="blankd_" href="http://electroncash.org">Electron Cash</a> | <a target="nw" href="http://wallet.bitcoin.com/">Bitcoin.com Wallet</a><br>
+			2. <a target="blank_" href="payment_page.zip">Download a payment page</a>. Unzip and move it to the folder with config files.<br>
+			3. Paste your CashAddr wallet receiving address below (make sure not to include the bitcoincash: prefix).</i><br>
+
+<hr>
+
+			<div style="width:100%;float:left;">
+
+				  <b>Per-post CashAddr Receiving Address (do not include "bitcoincash:" prefix)</b><br><br>
+				  <textarea style="min-width:290px;" class="address" id="cashaddress" onkeyUp="document.getElementById('paymentfilepreview').innerHTML = 'addr='+this.value+'.html'">qq7sjq4zreplacewithyouraddresshere1265ydnk</textarea>				  
+				  <br>&nbsp;<span class="minitext">'front_address.txt'<br></span>
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="front_address.txt" id="inputFileNameToSaveAsaddress"></input>
+					<button class="savebutton" onclick="saveTextAsFileaddress()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+
+<hr>
+				<center>
+				<br>
+				<b style="position:relative;top:-15px;color:#850303;">Final Step (activate overall payment page)</b>
+				<br><br>
+				  <b>Rename overall payment page file to:</b><br><br>
+				  <b style="background-color:#e2f1f3;padding:10px;margin:3px;font-size:0.8em;position:relative;left:-10px;" id="paymentfilepreview">-</b>		
+					<br>&nbsp;<span style="position:relative;top:15px;" class="minitext">(This file that begins with 'addr=' must be named correctly for payments to work)<br></span>
+
+				<br><br>
+				Upload all your custom configuration files into the root folder where you uploaded your 'Support' files to replace the default ones.
+				</center>
+
+<hr>			
+			
+
+
+			
+				<div style="width:100%;float:left;">
+				  <b>OPTIONAL: Disable link back to http://support.cash?</b><br><br>
+				  <textarea style="min-width:290px;" class="smaller" id="branding">on</textarea>				  
+			 <br>&nbsp;<span class="minitext">on = default, off = disabled - 'front_enablebranding.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="front_enablebranding.txt" id="inputFileNameToSaveAsbranding"></input>
+					<button class="savebutton" onclick="saveTextAsFilebranding()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+	
+	
+<div style="clear:both;"></div>
+
+
+<br><br><br>
+
+		<footer>
+			<a target="nw" href="https://github.com/AKARI-B3/support"><img style="position:relative;top:-20px;float:right;width:64px;padding:20px;" src="supportlogo.jpg"></a>
+			<i style="font-size:1em;">See example pages at highlighting site <a href="http://bitfund.cash">http://support.cash</a></i><br><br> 
+			<br><br>
+		</footer>
+
+	</div>
+
+    <script src="pell.js"></script>
+    <script>
+
+
+		var editor = window.pell.init({
+		element: document.getElementById('projectinfo'),
+		defaultParagraphSeparator: 'p',
+		styleWithCSS: true,
+		onChange: function (html) {
+		document.getElementById('html-output').textContent = html
+		},
+		actions: [   
+		'link',
+		'image', 
+		'paragraph',		            
+		'heading1',
+		'heading2',
+		'strikethrough',
+		'olist',
+		'ulist', 
+		'quote',
+		'left',
+		'center',
+		'code',
+		'line',				
+		'bold',
+		'underline',
+		'italic',
+		'remove',				
+		'undo',
+		'redo',
+		]  
+      })
+      
+      editor.content.innerHTML = '<h1>Project Headline Info</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p><br><h2>Project Subheader</h2><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+      
+      		var editor = window.pell.init({
+		element: document.getElementById('creatorinfo'),
+		defaultParagraphSeparator: 'p',
+		styleWithCSS: true,
+		onChange: function (html) {
+		document.getElementById('html-output1').textContent = html
+		},
+		actions: [   
+		'link',
+		'image', 
+		'paragraph',		            
+		'heading1',
+		'heading2',
+		'strikethrough',
+		'olist',
+		'ulist', 
+		'quote',
+		'left',
+		'center',
+		'code',
+		'line',				
+		'bold',
+		'underline',
+		'italic',
+		'remove',				
+		'undo',
+		'redo',
+		]  
+      })
+      editor.content.innerHTML = 'Describe the fund creator or some background on how the project was started'
+
+
+      
+      	var editor = window.pell.init({
+		element: document.getElementById('whydonate'),
+		defaultParagraphSeparator: 'p',
+		styleWithCSS: true,
+		onChange: function (html) {
+		document.getElementById('html-outputwhy').textContent = html
+		},
+		actions: [   
+		'link',
+		'image',             
+		'heading1',
+		'heading2',
+		'strikethrough',		
+		'olist',
+		'ulist',                
+		'bold',
+		'underline',
+		'italic',
+		'line',		
+		'paragraph',
+		]  
+      })
+      editor.content.innerHTML = '<p>Your donation will help with x, y, and z.<br>You can learn more at <a target="nw" href="https://yours.org/@yourprofile">your social profile</a>. Thank you for considering to donate, it will make a difference by providing x, y, and z and your support matters because x, y, and z.</p>'
+
+
+    </script>
+
+
+
+
+<script type="text/javascript">
+ 
+ function saveTextAsFileyours()
+{
+    var textToSave = document.getElementById('yours').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsyours").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ function saveTextAsFilememo()
+{
+    var textToSave = document.getElementById('memo').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsmemo").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ 
+ function saveTextAsFilebranding()
+{
+    var textToSave = document.getElementById('branding').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbranding").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ 
+
+ function saveTextAsFileaddress()
+{
+    var textToSave = document.getElementById('cashaddress').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsaddress").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ function saveTextAsFileaddresslink()
+{
+    var textToSave = 'addr=' + document.getElementById('cashaddress').value + '.html';
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = 'front_address.txt';
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ 
+ 
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById('html-output').textContent;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+ 
+ 
+ function saveTextAsFile1()
+{
+    var textToSave = document.getElementById('html-output1').textContent;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs1").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ function saveTextAsFilewhydonate()
+{
+    var textToSave = document.getElementById('html-outputwhy').textContent;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAswhydonate").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+
+ function saveTextAsFiletitle()
+{
+    var textToSave = document.getElementById('projecttitle').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAstitle").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ function saveTextAsFilemsg()
+{
+    var textToSave = document.getElementById('projectmsg').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsmsg").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+ 
+
+  function saveTextAsFilebackground()
+{
+    var textToSave = document.getElementById('backgroundselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbackground").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+ 
+ 
+   function saveTextAsFilebanner()
+{
+    var textToSave = document.getElementById('bannerselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbanner").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+   function saveTextAsFilemainfont()
+{
+    var textToSave = document.getElementById('mainfontselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsmainfont").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+   function saveTextAsFilesecondfont()
+{
+    var textToSave = document.getElementById('secondfontselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAssecondfont").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+   function saveTextAsFilebuttonfont()
+{
+    var textToSave = document.getElementById('buttonfontselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbuttonfont").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+   function saveTextAsFilenewpost()
+{
+    var textToSave = document.getElementById('newpostselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsnewpost").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+   function saveTextAsFiletopmenu()
+{
+    var textToSave = document.getElementById('topmenuselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAstopmenu").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+   function saveTextAsFilebuttonbg()
+{
+    var textToSave = document.getElementById('buttonbgselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbuttonbg").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+ 
+</script>
+
+
+
+
+
+  <script src="color-picker.js"></script>
+
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#backgroundselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("background").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#bannerselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("banner").style.backgroundColor = '#' + color;
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+		
+		<script>
+
+		var picker = new CP(document.querySelector('#buttonfontselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("buttonfontcolor").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+		<script>
+
+		var picker = new CP(document.querySelector('#newpostselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("newpost").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+		<script>
+
+		var picker = new CP(document.querySelector('#topmenuselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("topmenu").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+				
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#buttonbgselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("buttonbgcolor").style.backgroundColor = '#' + color;
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#mainfontselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("mainfontcolor").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#secondfontselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("secondfontcolor").style.backgroundColor = '#' + color;
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+
+
+								
+<center><b><a style="position:relative;top:10px;font-size:0.7em;padding:20px;" href="https://github.com/AKARI-B3/support">Support Editor</a></b></center>
+    
+  </body>
+</html>
