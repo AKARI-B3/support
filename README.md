@@ -5,7 +5,7 @@
 
 Publishing is free, there are zero fees, (and if hosted on github is completely free) and includes with each post a method for visitors or supporters to express appreciation for a post using (direct, peer-to-peer) Bitcoin Cash as well as link to individual posts including mobile and tablet views.
 
-What this enables is a free, decentralized, self-publishing platform where your content or data is something you own and manage and have access to and isn't manipulated with targeted advertising, pay-walls, social API's, and tracking API's that many social networks and publishing platforms are using to profit from your data - and visitors, fans, or readers can support you directly.
+<b><i>What this enables is a free, decentralized, self-publishing platform where your content or data is something you own and manage and have access to and isn't manipulated with targeted advertising, pay-walls, social API's, and tracking API's that many social networks and publishing platforms are using to profit from your data - and visitors, fans, or readers can support you directly.</b></i>
 
 <hr>
 
