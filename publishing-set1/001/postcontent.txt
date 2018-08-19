@@ -1,0 +1,54 @@
+Example text for post #1 postcontent.txt - The quick, brown fox jumps over a lazy dog. <a target="nw" href="http://support.cash">Example Link</a>. I had had so many reasons to believe in my friend's subtle powers of reasoning and extraordinary energy in action that I felt that he must have some solid grounds for the assured and easy demeanour with which he treated the singular mystery which he had been called upon to fathom. Once only had I known him to fail, in the case of the King of Bohemia and of the Irene Adler photograph; but when I looked back to the weird business of the Sign of Four, and the extraordinary circumstances connected with the Study in Scarlet, I felt that it would be a strange tangle indeed which he could not unravel. <br><br>
+
+<h4>Picture Example:</h4>
+<picture>
+  <img src="media/example.jpg" alt="Example Image" style="width:100%;">
+</picture>
+
+<br><br>
+
+<h4>Divider Example:</h4>
+<hr>
+
+<br>
+<h4>Audio Example:</h4>
+<center><audio controls>
+<source src="media/chopin1225.mp3" type="audio/mpeg">
+Browser doesn't support audio tag.
+</audio></center>
+
+<br>
+<h4>Video Example:</h4>
+<br>
+<center><iframe src="https://player.vimeo.com/video/55073825" width="640" height="272" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</center>
+
+<br>
+<h4>GIF Example:</h4>
+<br>
+<center><div style='position:relative;padding-bottom:54%'><iframe src='https://gfycat.com/ifr/RegalNaughtyAxolotl' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div>
+</center>
+
+<h4>List Example:</h4>
+<ul>
+<li>55g butter</li>
+<li>100g cheddar cheese</li>
+<li>80-90 ml milk, plus extra for glazing</li>
+</ul>
+
+<h4>Numbered List:</h4>
+<ol>
+<li>Place the warm water in the large bowl of a heavy duty stand mixer.</li>
+<li>Using the mixing paddle attachment, mix in the flour, salt, sugar, and olive oil on low speed for a minute.</li>
+<li>Spread a thin layer of olive oil over the inside of a large bowl. Place the pizza dough in the bowl and turn it around so that it gets coated with the oil.</li>
+</ol>
+
+<h4>Code Example:</h4>
+<pre>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br>&lt;h1&gt;My First Heading&lt;/h1&gt;<br>&lt;p&gt;My first paragraph.&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt; </pre>
+
+
+<h4>Quote Example:</h4>
+<blockquote>
+Our customs, behaviors, and values are byproducts of our culture. No one is born with greed, prejudice, bigotry, patriotism and hatred; these are all learned behavior patterns. If the environment is unaltered, similar behavior will reoccur. - Jacque fresco
+</blockquote>
+
