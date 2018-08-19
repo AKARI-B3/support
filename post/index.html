@@ -1,0 +1,1220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--Created by AKARI agf.earth - MIT License - Copyright © - Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.-->
+
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+
+    <title>Write New Post</title>
+
+    <link rel="stylesheet" type="text/css" href="pell.css">
+
+    <link href="color-picker.css" rel="stylesheet">
+
+    <style type="text/css">
+
+	.color-picker-box {
+      display:block;
+      margin-top:1px;
+      border-color:inherit;
+      float:left;
+      width:10%;
+      height:1.25em;
+      cursor:pointer;
+      z-index:999;
+    }
+
+    .color-picker-box:first-child {clear:both}
+            
+		a.pell-content{
+		color:#5555FF !important;
+		text-decoration:underline;
+		}
+		h1.pell-content{
+		color:#333;
+		font-size:1.1em;
+		font-weight:bold;            
+		padding:0px;
+		margin:0px;		
+		}
+		h2.pell-content{
+		color:#333;
+		font-size:1em;
+		font-weight:bold;
+		padding:0px;
+		margin:0px;
+		}
+
+     }
+     .minitext{
+     background-color:#eee;
+     padding:3px;
+     border-radius:4px;
+     position:relative;
+     top:5px;
+     }
+    
+    notice{
+    position:fixed;
+    margin:auto;
+    text-align:center;
+    width:90%;
+    top:50px;
+    background-color:#dfd;
+    padding:20px;
+    border-radius:4px;
+    margin:20px;
+    -moz-animation: cssAnimation 2s ease-in 1s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 2s ease-in 1s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 2s ease-in 1s forwards;
+    /* Opera */
+    animation: cssAnimation 2s ease-in 1s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color:#111;
+    border:2px #494 solid;
+}
+
+@keyframes cssAnimation {
+    to {
+
+        opacity:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+
+        opacity:0;        
+        visibility:hidden;
+    }
+}
+
+	b{color:#222;}
+		
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #fff;
+			font-family: verdana;
+			color: #55555a;
+			font-size: 0.8em;
+		}
+
+	
+	.content {
+		box-sizing: border-box;
+		margin: 0 auto;
+		max-width: 960px;
+		padding: 20px;
+		background: none;
+		box-shadow: 0px 1px 50px #c6ced5;
+	}
+	
+		header{
+		background: linear-gradient(#f9fdff, #cde1ee, #cde1ee, #abc1cf);
+		width:100%;
+		padding:20px;
+		position:relative;
+		left:-20px;
+		top:-25px;
+		}
+
+		footer{
+		background: linear-gradient(#f9fdff, #cde1ee, #cde1ee, #8da7b8);
+		width:100%;
+		padding:20px;
+		position:relative;
+		left:-20px;
+		bottom: -20px;		
+		}
+
+		
+    #html-output {
+        white-space: pre-wrap;
+      }
+      #html-output1 {
+        white-space: pre-wrap;
+      }
+      #html-outputwhy {
+        white-space: pre-wrap;
+      }      
+      a.savebutton{
+      margin-bottom:10px;text-decoration:none;margin:10px;border-radius:6px;
+	  background: linear-gradient(#f6fbff, #b1c6d4, #c6d8e5);
+      border:0px;padding:20px;color:#050;font-weight:bold;
+      box-shadow:3px 3px 5px #778;
+      }
+      a.savebutton:hover{
+      margin-bottom:10px;text-decoration:none;margin:10px;border-radius:6px;
+      	  background: linear-gradient(#268b16, #37b41a, #268b16);
+      border:0px;padding:20px;color:#fff;font-weight:bold;
+      }
+      a.savebutton:active{
+      margin-bottom:10px;text-decoration:none;argin:10px;border-radius:6px;background-color:#fff;border:0px;padding:20px;color:#2f6e29;font-weight:bold;
+      }
+      button.savebutton{
+      min-width:120px;margin:10px;border-radius:6px;
+	  background: linear-gradient(#f6fbff, #b1c6d4, #c6d8e5);
+      border:0px;padding:20px;color:#050;font-weight:bold;
+      box-shadow:0px 1px 5px #778;      
+      }
+      button.savebutton:hover{
+      margin:10px;border-radius:6px;
+      	  background: linear-gradient(#268b16, #37b41a, #268b16);
+      border:0px;padding:20px;color:#fff;font-weight:bold;
+      }      
+      button.savebutton:active{
+      margin:10px;border-radius:6px;background-color:#fff;border:0px;padding:20px;color:#2f6e29;font-weight:bold;
+      }
+      a.img{
+ 	   border-bottom: 1px #0063ee dashed;
+		}
+		a{
+		border-bottom: 1px #0063ee dashed;
+		}  
+      .pell{
+      background-color:#fff;
+      }
+      .pell-content{
+      color:#333;
+      resize: vertical;
+      min-height:600px;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+    --x-height-multiplier: 0.375;
+    --baseline-multiplier: 0.17;
+    letter-spacing: .01rem;
+    font-weight: 100;
+    font-style: normal;
+	font-size: 1.6em;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    font-family: Georgia,Cambria,"Times New Roman",Times,serif !important;
+      }
+blockquote {
+    position: relative;
+    /* background: #ddd; */
+    width:75%;
+}
+pre{
+background-color:#eee;
+padding:10px;
+border-radius:12px;
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+blockquote:before {
+  position: absolute;
+  content: open-quote;
+  font-size: 2.5em;
+  margin-left: -0.6em;
+  margin-top: -0.4em;
+  opacity:0.6;
+}
+blockquote:after {
+  position: absolute;
+  content: close-quote;
+  font-size: 2.5em;
+  bottom: 0;
+  right: 0;
+  margin-right: -0.6em;
+  margin-bottom: -0.8em;
+  opacity:0.6;  
+}
+blockquote p {
+  display: inline;
+}
+
+      hr{
+      width:100%;
+      border:1px #CCD solid;
+		margin-top:25px;
+		margin-bottom:25px;
+      }
+
+		textarea {
+			border: none;
+			border-radius: 5px;
+			font-family: verdana;
+			font-weight: bold;
+			background-color: #fff;
+			padding: 8px;
+			font-size: 90%;
+			resize: none;
+			height: 20px;
+			border: 1px #d4d9e6 solid;
+			background-color: #fafaff;
+		}
+      textarea.smaller{
+			border: none;
+			border-radius: 5px;
+			font-family: verdana;
+			font-weight: bold;
+			background-color: #fff;
+			padding: 15px;
+			font-size: 2em;
+			resize: none;
+			height: 34px;
+			border: 1px #d4d9e6 solid;
+			background-color: #fafaff;
+			width: 75%;
+		}
+
+      textarea.address{
+			border: none;
+			border-radius: 5px;
+			font-family: verdana;
+			font-weight: bold;
+			background-color: #fff;
+			padding: 15px;
+			font-size: 90%;
+			resize: none;
+			height: 34px;
+			border: 1px #d4d9e6 solid;
+			background-color: #fafaff;
+			width: 75%;
+		}
+
+
+    </style>
+
+  </head>
+
+  
+
+
+
+
+
+  <body>
+
+<script type="text/javascript">
+window.onbeforeunload = function() { return "You work will be lost."; };
+</script>
+
+
+    <div class="content">
+		
+		<header>
+			<a target="blank_" href="https://support.cash"><img style="position:relative;top:-20px;right:-30px;float:right;width:48px;padding:40px;" src="supportlogo.jpg"></a>
+			<h2 style="font-size:2em;margin-top:35px;">New Post</h2>
+		</header>
+
+
+			<div style="width:100%;float:left;">
+			
+				<i style="font-size:1em;"><b>Instructions:</b> Please read before starting: <b style="background-color:#ffff00;color:#000;">&#9888;</b><b style="color:#933;">Refreshing this page will lose your changes</b>.<br>
+				1. <a target="blank_" href="00X.zip">Download a post template</a> to your local device.<br>
+				2. Unarchive the folder, these are the post files. Rename the folder to correspond with which post you're on, ex 001, 002, 003.<br>
+				3. Use this page to save your customizations by hitting the save button next to each section and overwrite the post template.<br>
+				4. Once you're done, upload the files to your webhost or github in the corresponding set post folder, ex 002, 003.<br>
+				
+<hr>
+
+			<div style="width:100%;float:left;">
+				  <b>Post title</b><br><br>
+				  <textarea style="min-width:290px;" class="smaller" id="title"></textarea>
+				  <br>&nbsp;<span class="minitext">'title.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="title.txt" id="inputFileNameToSaveAstitle"></input>
+					<button class="savebutton" onclick="saveTextAsFiletitle()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			<script>	
+			function saveTextAsFiletitle()
+			{
+			var textToSave = document.getElementById('title').value;
+			var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+			var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+			var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAstitle").value;
+
+			var downloadLink = document.createElement("a");
+			downloadLink.download = fileNameToSaveAs;
+			downloadLink.innerHTML = "Download File";
+			downloadLink.href = textToSaveAsURL;
+			downloadLink.onclick = destroyClickedElement;
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+
+			downloadLink.click();
+			}
+			</script>
+
+<hr>
+
+			<div style="width:100%;">
+				  <b>Post Content (Use shift+return for single line breaks).</b><br><br>
+				  <div id="postcontent" class="pell"></div>
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<span class="minitext">'postcontent.txt'</span> &nbsp;&nbsp;
+					<input style="display:none;" value="postcontent.txt" id="inputFileNameToSaveAs"></input>
+					<button class="savebutton" onclick="saveTextAsFile()">&#10003; Save As...</button>
+					</div>
+				  
+			</div>
+			<div style="width:100%;display:block;">
+					<br><br><br> 
+					<h2 style="border-bottom:1px solid #ccc;">Post Code Preview:</h2>  
+					<div style="margin-top:20px;">
+					<pre style="font-size:1em;" id="html-output"></pre>
+					</div>
+			</div>  
+			<div style="clear:both;"></div>
+			
+<hr>
+
+
+			<div style="width:100%;">
+				  <b>Extra Content (To upload later, when support goal reached).</b><br><br>
+				  <div id="extracontent" class="pell"></div>
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<span class="minitext">'extracontent.txt'</span> &nbsp;&nbsp;
+					<input style="display:none;" value="extracontent.txt" id="inputFileNameToSaveAsextra"></input>
+					<button class="savebutton" onclick="saveTextAsFileextra()">&#10003; Save As...</button>
+					</div>
+				  
+			</div>
+
+
+			<div style="width:100%;display:block;">
+					<br><br><br> 
+					<h2 style="border-bottom:1px solid #ccc;">Code Preview:</h2>  
+					<div style="margin-top:20px;">
+					<pre style="font-size:1em;" id="html-output1"></pre>
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+			
+
+
+<hr>
+
+<div style="clear:both;"></div>
+
+			
+				  <b>Publish Date</b><br><br>
+				  <textarea style="min-width:290px;" id="published_date">03 January 2009</textarea>				  
+					<br>&nbsp; <span class="minitext">Match format above to be used on http://support.cash listing, 'published_date.txt'</span> &nbsp;&nbsp;
+
+			<script type="text/javascript">
+				var objToday = new Date(),
+				weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+				dayOfWeek = weekday[objToday.getDay()],
+				domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return ""; a = parseInt((a + "").charAt(1)); return 1 == a ? "" : 2 == a ? "" : 3 == a ? "" : "" }(),
+				dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
+				months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+				curMonth = months[objToday.getMonth()],
+				curYear = objToday.getFullYear(),
+				curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours()),
+				curMinute = objToday.getMinutes() < 10 ? "0" + objToday.getMinutes() : objToday.getMinutes(),
+				curSeconds = objToday.getSeconds() < 10 ? "0" + objToday.getSeconds() : objToday.getSeconds(),
+				curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
+//				var today = curHour + ":" + curMinute + "." + curSeconds + curMeridiem + " " + dayOfWeek + " " + dayOfMonth + " " + curMonth + " " + curYear;
+				var today = dayOfMonth + " " + curMonth + " " + curYear;				
+//				alert(today);
+				document.getElementById('published_date').innerHTML = (today);
+			</script>
+			
+			</div>
+
+
+			<div style="width:20%;float:right;">
+					<div style="float:right;margin:auto;text-align;right;">
+									
+					<input style="display:none;" value="published_date.txt" id="inputFileNameToSaveAspubdate"></input>
+					
+					<button class="savebutton" onclick="saveTextAsFilepubdate()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+
+			<script type="text/javascript">
+			function saveTextAsFilepubdate()
+			{
+			var textToSave = document.getElementById('published_date').value;
+			var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+			var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+			var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAspubdate").value;
+
+			var downloadLink = document.createElement("a");
+			downloadLink.download = fileNameToSaveAs;
+			downloadLink.innerHTML = "Download File";
+			downloadLink.href = textToSaveAsURL;
+			downloadLink.onclick = destroyClickedElement;
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+
+			downloadLink.click();
+			}
+
+			</script>
+			
+			
+<hr>
+			
+			
+			<h2>Cost of post</h2>
+			
+				<div style="width:100%;float:left;">
+				  <b>How much in <a target="blank_" href="http://tools.bitcoin.com">BCH</a> would you like others to pay to support this post?</b><br><br>
+				  <textarea style="min-width:290px;" id="cost">0.01</textarea>				  
+			 <br>&nbsp;<span class="minitext">'cost.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="cost.txt" id="inputFileNameToSaveAscost"></input>
+					<button class="savebutton" onclick="saveTextAsFilecost()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+
+<div style="clear:both;"></div>
+			
+		
+
+
+<hr>
+			
+			
+			<h2>Support Goal (amount of transactions to post extra content for all).</h2>
+			
+				<div style="width:100%;float:left;">
+				  <b>How many transactions would you like to aim for?</b><br><br>
+				  <textarea style="min-width:290px;" id="goal">5</textarea>				  
+			 <br>&nbsp;<span class="minitext">'goal.txt'</span>&nbsp;&nbsp;
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="goal.txt" id="inputFileNameToSaveAsgoal"></input>
+					<button class="savebutton" onclick="saveTextAsFilegoal()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+
+<div style="clear:both;"></div>
+			
+		
+
+
+<hr>
+
+			<div style="width:100%;float:left;">
+
+				  <b>Per-post CashAddr Receiving Address (do not include "bitcoincash:" prefix)</b><br><br>
+				  <textarea style="min-width:290px;" class="address" id="cashaddress" onkeyUp="document.getElementById('paymentfilepreview').innerHTML = 'addr='+this.value+'.html'">qq7sjq4zreplacewithyouraddresshere1265ydnk</textarea>				  
+				  <br>&nbsp;<span class="minitext">'address.txt'<br></span>
+			</div>
+
+
+			<div style="width:20%;float:right;">
+
+					<div style="float:right;margin:auto;text-align;right;">
+					<input style="display:none;" value="address.txt" id="inputFileNameToSaveAsaddress"></input>
+					<button class="savebutton" onclick="saveTextAsFileaddress()">&#10003; Save As...</button>
+					</div>
+					
+					<div style="margin-top:20px;">
+					</div>
+			</div>  
+	
+			<div style="clear:both;"></div>
+
+<hr>
+				<center>
+				<br>
+				<b style="position:relative;top:-15px;color:#850303;">Final Step (activate this post's payment page)</b>
+				<br><br>
+				  <b>Rename your post's payment page file to:</b><br><br>
+				  <b style="background-color:#e2f1f3;padding:10px;margin:3px;font-size:0.8em;position:relative;left:-10px;" id="paymentfilepreview">-</b>		
+					<br>&nbsp;<span style="position:relative;top:15px;" class="minitext">(This file that begins with 'addr=' must be named correctly for payment to work)<br></span>
+
+				<br><br>
+				</center>
+
+<hr>
+			
+	
+	
+<div style="clear:both;"></div>
+
+
+<br><br><br>
+
+		<footer>
+			<a target="blank_" href="https://support.cash"><img style="position:relative;top:-40px;float:right;width:38px;padding:20px;" src="supportlogo.jpg"></a>
+
+			<br><br>
+		</footer>
+
+	</div>
+
+    <script src="pell.js"></script>
+    <script>
+
+
+		var editor = window.pell.init({
+		element: document.getElementById('postcontent'),
+		defaultParagraphSeparator: 'p',
+		styleWithCSS: true,
+		onChange: function (html) {
+		document.getElementById('html-output').textContent = html
+		},
+		actions: [   
+		'link',
+		'image', 
+		'paragraph',		            
+		'heading1',
+		'heading2',
+		'strikethrough',
+		'olist',
+		'ulist', 
+		'quote',
+		'left',
+		'center',
+		'code',
+		'line',				
+		'bold',
+		'underline',
+		'italic',
+		'remove',				
+		'undo',
+		'redo',
+		]  
+      })
+      
+      editor.content.innerHTML = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>'
+      
+      		var editor = window.pell.init({
+		element: document.getElementById('extracontent'),
+		defaultParagraphSeparator: 'p',
+		styleWithCSS: true,
+		onChange: function (html) {
+		document.getElementById('html-output1').textContent = html
+		},
+		actions: [   
+		'link',
+		'image', 
+		'paragraph',		            
+		'heading1',
+		'heading2',
+		'strikethrough',
+		'olist',
+		'ulist', 
+		'quote',
+		'left',
+		'center',
+		'code',
+		'line',				
+		'bold',
+		'underline',
+		'italic',
+		'remove',				
+		'undo',
+		'redo',
+		]  
+      })
+      editor.content.innerHTML = 'Replacing the contents of extracontent.txt will replace the temporary block and image on your post.'
+
+
+      
+      
+    </script>
+
+
+
+
+<script type="text/javascript">
+ 
+ function saveTextAsFilegoal()
+{
+    var textToSave = document.getElementById('goal').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsgoal").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+
+ function saveTextAsFilecost()
+{
+    var textToSave = document.getElementById('cost').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAscost").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+
+
+ 
+ function saveTextAsFilebranding()
+{
+    var textToSave = document.getElementById('branding').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbranding").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ 
+
+ function saveTextAsFileaddress()
+{
+    var textToSave = document.getElementById('cashaddress').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsaddress").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ function saveTextAsFileaddresslink()
+{
+    var textToSave = 'addr=' + document.getElementById('cashaddress').value + '.html';
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = 'front_address.txt';
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ 
+ 
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById('html-output').textContent;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+ 
+ 
+ function saveTextAsFile1()
+{
+    var textToSave = document.getElementById('html-output1').textContent;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs1").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+ function saveTextAsFilewhydonate()
+{
+    var textToSave = document.getElementById('html-outputwhy').textContent;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAswhydonate").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+
+
+ 
+
+  function saveTextAsFilebackground()
+{
+    var textToSave = document.getElementById('backgroundselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbackground").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+ 
+ 
+   function saveTextAsFilebanner()
+{
+    var textToSave = document.getElementById('bannerselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbanner").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+   function saveTextAsFilemainfont()
+{
+    var textToSave = document.getElementById('mainfontselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsmainfont").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+   function saveTextAsFilesecondfont()
+{
+    var textToSave = document.getElementById('secondfontselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAssecondfont").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+   function saveTextAsFilebuttonfont()
+{
+    var textToSave = document.getElementById('buttonfontselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbuttonfont").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+   function saveTextAsFilenewpost()
+{
+    var textToSave = document.getElementById('newpostselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsnewpost").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+   function saveTextAsFiletopmenu()
+{
+    var textToSave = document.getElementById('topmenuselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAstopmenu").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+   function saveTextAsFilebuttonbg()
+{
+    var textToSave = document.getElementById('buttonbgselector').value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAsbuttonbg").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+} 
+
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+ 
+</script>
+
+
+
+
+
+  <script src="color-picker.js"></script>
+
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#backgroundselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("background").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#bannerselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("banner").style.backgroundColor = '#' + color;
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+		
+		<script>
+
+		var picker = new CP(document.querySelector('#buttonfontselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("buttonfontcolor").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+		<script>
+
+		var picker = new CP(document.querySelector('#newpostselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("newpost").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+		<script>
+
+		var picker = new CP(document.querySelector('#topmenuselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("topmenu").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+				
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#buttonbgselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("buttonbgcolor").style.backgroundColor = '#' + color;
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#mainfontselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("mainfontcolor").style.backgroundColor = '#' + color;		
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+		<script>
+
+		var picker = new CP(document.querySelector('#secondfontselector'));
+
+		picker.on("change", function(color) {
+		this.target.value = '#' + color;
+		document.getElementById("secondfontcolor").style.backgroundColor = '#' + color;
+		}, 'main-change');
+
+		var colors = ['012', '123', '234', '345', '456', '567', '678', '789', '89a', '9ab'], box;
+
+		for (var i = 0, len = colors.length; i < len; ++i) {
+		box = document.createElement('span');
+		box.className = 'color-picker-box';
+		box.title = '#' + colors[i];
+		box.style.backgroundColor = '#' + colors[i];
+		box.addEventListener("click", function(e) {
+		picker.set(this.title);
+		picker.fire("change", [this.title.slice(1)], 'main-change');
+		e.stopPropagation();
+		}, false);
+		picker.picker.firstChild.appendChild(box);
+		}
+
+		</script>
+
+
+
+
+								
+<center><b><a style="position:relative;top:10px;font-size:0.7em;padding:20px;" href="https://github.com/AKARI-B3/support">Support (New Post)</a></b></center>
+    
+  </body>
+</html>
